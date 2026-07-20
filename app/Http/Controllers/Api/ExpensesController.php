@@ -17,7 +17,7 @@ class ExpensesController extends Controller
     public function index(Request $request)
     {
         //
-        $expenses = $request->user->expenses()->get();
+        $expenses = $request->user()->expenses()->get();
         return ExpensesResource::collection($expenses);
     }
 
@@ -29,7 +29,9 @@ class ExpensesController extends Controller
         //
         $this->authorize('create', Expenses::class); 
 
-        $expense = $request->user()->expenses()->create($request->validated());
+        $expense = $request->user()
+            ->expenses()
+            ->create($request->validated());
         return new ExpensesResource($expense); 
 
     }

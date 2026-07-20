@@ -9,8 +9,8 @@ Route::post('register', [AuthenticationController::class, 'register']);
 Route::post('login', [AuthenticationController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function (){
-    Route::apiResource('expenses', ExpensesController::class);
     Route::post('logout', [AuthenticationController::class, 'logOut']);
+    Route::apiResource('expenses', ExpensesController::class);
 
 });
 

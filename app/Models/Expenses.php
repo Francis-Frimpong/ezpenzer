@@ -12,7 +12,7 @@ class Expenses extends Model
 
     public  function user()
     {
-        return $this->belongsTo(Expenses::class);
+        return $this->belongsTo(User::class);
 
     }
     

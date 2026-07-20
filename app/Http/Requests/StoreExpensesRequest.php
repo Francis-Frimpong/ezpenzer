@@ -24,7 +24,6 @@ class StoreExpensesRequest extends FormRequest
     {
         return [
             //
-            'user_id' => 'required|integer',
             'amount' => 'required|numeric',
             'category' => 'required|string|max:20',
             'description' => 'required|string|max:255'
