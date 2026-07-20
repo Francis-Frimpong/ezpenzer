@@ -39,34 +39,34 @@ class ExpensesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Expenses $expenses)
+    public function show(Expenses $expense)
     {
         //
-        $this->authorize('view', $expenses);
-        return new ExpensesResource($expenses);
+        $this->authorize('view', $expense);
+        return new ExpensesResource($expense);
 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateExpensesRequest $request, Expenses $expenses)
+    public function update(UpdateExpensesRequest $request, Expenses $expense)
     {
         //
-        $this->authorize('update', $expenses);
-        $expenses->update($request->validated());
-        return new ExpensesResource($expenses);
+        $this->authorize('update', $expense);
+        $expense->update($request->validated());
+        return new ExpensesResource($expense);
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Expenses $expenses)
+    public function destroy(Expenses $expense)
     {
         //
-        $this->authorize('delete', $expenses);
-        $expenses->delete();
+        $this->authorize('delete', $expense);
+        $expense->delete();
         return response()->noContent();
     }
 }
